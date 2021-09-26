@@ -33,8 +33,8 @@ router.post("/", (req,res) => {
         }) 
 })
 
-router.delete("/", (req,res) => {
-    Resources.deleteResource(req.params_resource_id)
+router.delete("/:resource_id", (req,res) => {
+    Resources.deleteResource(req.params.resource_id)
         .then(resource => {
             res.status(200).json(resource)
         })

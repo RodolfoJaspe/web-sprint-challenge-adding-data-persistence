@@ -34,7 +34,7 @@ router.post("/", (req,res) => {
         })
 })
 
-router.delete("/:project_id", (req,res) => {
+router.delete("/:project_id", checkProjectId,(req,res) => {
     Projects.deleteProject(req.params.project_id)
         .then(project => {
             res.status(200).json(project)
